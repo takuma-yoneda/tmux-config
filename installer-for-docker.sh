@@ -7,8 +7,7 @@ ln -s $HOME/.tmux/.tmux.conf $HOME/.tmux.conf
 cd ~/.tmux && git submodule init && git submodule update
 popd > /dev/null
 
-echo "fuga" > fuga.txt
-pip install instead of building it from scrach.
+# pip install instead of building it from scrach.
 pip install psutil
 
 # place it where registered in PATH
