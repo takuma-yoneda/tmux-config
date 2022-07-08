@@ -21,8 +21,8 @@ fi
 cp -r $HOME/tmux-config $HOME/.tmux
 ln -s $HOME/.tmux/.tmux.conf $HOME/.tmux.conf
 
-cd ~/.tmux && git submodule init && git submodule update
+# cd ~/.tmux && git submodule init && git submodule update
 
-cd ~/.tmux/vendor/tmux-mem-cpu-load && cmake . && make && sudo make install
+# cd ~/.tmux/vendor/tmux-mem-cpu-load && cmake . && make && sudo make install
 
 tmux source-file ~/.tmux.conf
