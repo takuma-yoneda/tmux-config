@@ -8,21 +8,18 @@
 trap exit ERR
 if [ -d $HOME/.tmux  ]
 then
-    echo .tmux already exist
+    echo The existing .tmux is backed up to .tmux.bak
     mv $HOME/.tmux $HOME/.tmux.bak
 fi
 
 if [ -e $HOME/.tmux.conf  ]
 then
-    echo .tmux.conf already exist
+    echo The existing .tmux.conf is backed up to .tmux.conf.bak
     mv $HOME/.tmux.conf $HOME/.tmux.conf.bak
 fi
+# This gives the path to this directory (https://stackoverflow.com/a/44644933/7057866)
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+ln -s $DIR/.tmux.conf $HOME/.tmux.conf
 
-cp -r $HOME/tmux-config $HOME/.tmux
-ln -s $HOME/.tmux/.tmux.conf $HOME/.tmux.conf
-
-# cd ~/.tmux && git submodule init && git submodule update
-
-# cd ~/.tmux/vendor/tmux-mem-cpu-load && cmake . && make && sudo make install
 
 tmux source-file ~/.tmux.conf
